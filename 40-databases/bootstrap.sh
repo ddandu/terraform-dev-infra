@@ -3,6 +3,7 @@
 component=$1
 #environment=$2
 dnf install ansible -y
+sudo yum install python3-pip -y
 #ansible-pull -U https://github.com/daws-86s/ansible-roboshop-roles-tf.git -e component=$component main.yaml
 # git clone ansible-playbook
 # cd ansible-playbook
