@@ -30,4 +30,4 @@ else
 fi
 
 
-ansible-playbook -e component=$component environment=dev main.yaml
+ansible-playbook -e component=$component -e environment=dev main.yaml
