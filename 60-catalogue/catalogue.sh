@@ -4,7 +4,7 @@ component=$1
 environment=$2
 dnf install ansible -y
 
-PO_URL=https://github.com/ddandu/ansible-roboshop-roles-terraform.git 
+REPO_URL=https://github.com/ddandu/ansible-roboshop-roles-terraform.git 
 REPO_DIR=/opt/roboshop/ansible
 ANSIBLE_DIR=ansible-roboshop-roles-terraform
 
