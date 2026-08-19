@@ -143,7 +143,8 @@ resource "aws_autoscaling_group" "catalogue" {
   }
   vpc_zone_identifier       = local.private_subnet_ids
   target_group_arns = [aws_lb_target_group.catalogue.arn]
-
+ 
+  #Instance refresh when new AMI is updated.
   instance_refresh {
     strategy = "Rolling"
     preferences {
@@ -151,7 +152,7 @@ resource "aws_autoscaling_group" "catalogue" {
     }
     triggers = ["launch_template"]
   }
-  
+
   dynamic "tag" {  # we will get the iterator with name as tag
     for_each = merge(
       local.common_tags,
@@ -182,7 +183,6 @@ resource "aws_autoscaling_policy" "catalogue" {
     predefined_metric_specification {
       predefined_metric_type = "ASGAverageCPUUtilization"
     }
-
     target_value = 75.0
   }
 }
